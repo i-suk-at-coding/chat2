@@ -9,7 +9,7 @@
   <button onclick="send()">Send</button>
 
   <script>
-    const socket = new WebSocket("wss://YOUR_NGROK_URL_HERE");
+    const socket = new WebSocket("wss://chat2-zh79.onrender.com");
 
     socket.onmessage = e => {
       document.getElementById("messages").innerHTML += `<p>${e.data}</p>`;
@@ -22,4 +22,5 @@
     }
   </script>
 </body>
+
 </html>
