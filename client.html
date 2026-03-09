@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h3>Simple Chat</h3>
+
+  <div id="messages"></div>
+
+  <input id="msg" placeholder="Type..." />
+  <button onclick="send()">Send</button>
+
+  <script>
+    const socket = new WebSocket("wss://YOUR_NGROK_URL_HERE");
+
+    socket.onmessage = e => {
+      document.getElementById("messages").innerHTML += `<p>${e.data}</p>`;
+    };
+
+    function send() {
+      const input = document.getElementById("msg");
+      socket.send(input.value);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
